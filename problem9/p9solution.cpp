@@ -28,16 +28,16 @@ bool is_palindrome(int x)
 int main(int argc, char** argv)
 {
     std::cout << "1221: " 
-              << (is_palindrome(1221) ? "true" : "false") << std::endl;
+            << (is_palindrome(1221) ? "true" : "false") << std::endl;
     std::cout << "101: " 
-              << (is_palindrome(101) ? "true" : "false") << std::endl;          
+            << (is_palindrome(101) ? "true" : "false") << std::endl;          
     std::cout << "34566543: " 
-              << (is_palindrome(34566543) ? "true" : "false") << std::endl;
+            << (is_palindrome(34566543) ? "true" : "false") << std::endl;
     std::cout << "9081809: " 
-              << (is_palindrome(9081809) ? "true" : "false") << std::endl;
+            << (is_palindrome(9081809) ? "true" : "false") << std::endl;
     std::cout << "45632: " 
-              << (is_palindrome(45632) ? "true" : "false") << std::endl;
+            << (is_palindrome(45632) ? "true" : "false") << std::endl;
     std::cout << "98324: " 
-              << (is_palindrome(98324) ? "true" : "false") << std::endl;
+            << (is_palindrome(98324) ? "true" : "false") << std::endl;
     return EXIT_SUCCESS;
 }
