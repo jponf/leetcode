@@ -9,11 +9,9 @@ def find_sorted_arrays_median(nums1, nums2):
     :rtype: float
     """
     if len(nums1) > len(nums2):
-        return _find_sorted_ararys_median(nums2, 0, len(nums2),
-                                          nums1, 0, len(nums1))
+        return _find_sorted_ararys_median(nums2, 0, len(nums2), nums1, 0, len(nums1))
 
-    return _find_sorted_ararys_median(nums1, 0, len(nums1),
-                                      nums2, 0, len(nums2))
+    return _find_sorted_ararys_median(nums1, 0, len(nums1), nums2, 0, len(nums2))
 
 
 def find_sorted_array_median(nums):
@@ -29,41 +27,55 @@ def _find_sorted_ararys_median(nums1, start1, len1, nums2, start2, len2):
     mid2 = start2 + len2 // 2
 
     if len1 == 0:
-        return nums2[mid2] if len2 % 2 else (nums2[mid2-1] + nums2[mid2]) / 2.0
+        return nums2[mid2] if len2 % 2 else (nums2[mid2 - 1] + nums2[mid2]) / 2.0
     if len1 == 1:
         if len2 == 1:
             return (nums1[start1] + nums2[start2]) / 2.0
         elif len2 % 2:  # is odd
-            return median_of_4(nums1[start1], nums2[mid2-1],
-                               nums2[mid2], nums2[mid2+1])
-        else:           # is even
-            return median_of_3(nums1[start1], nums2[mid2-1], nums2[mid2])
+            return median_of_4(
+                nums1[start1], nums2[mid2 - 1], nums2[mid2], nums2[mid2 + 1]
+            )
+        else:  # is even
+            return median_of_3(nums1[start1], nums2[mid2 - 1], nums2[mid2])
     elif len1 == 2:
         if len2 == 2:
-            return median_of_4(nums1[start1], nums1[start1+1],
-                               nums2[start2], nums2[start2+1])
+            return median_of_4(
+                nums1[start1], nums1[start1 + 1], nums2[start2], nums2[start2 + 1]
+            )
         elif len2 % 2:  # is odd
-            return median_of_3(max(nums1[start1], nums2[mid2-1]),
-                               nums2[mid2],
-                               min(nums1[start1+1], nums2[mid2+1]))
-        else:           # is even
-            return median_of_4(max(nums1[start1], nums2[mid2-2]),
-                               nums2[mid2-1], nums2[mid2],
-                               min(nums1[start1+1], nums2[mid2+1]))
+            return median_of_3(
+                max(nums1[start1], nums2[mid2 - 1]),
+                nums2[mid2],
+                min(nums1[start1 + 1], nums2[mid2 + 1]),
+            )
+        else:  # is even
+            return median_of_4(
+                max(nums1[start1], nums2[mid2 - 2]),
+                nums2[mid2 - 1],
+                nums2[mid2],
+                min(nums1[start1 + 1], nums2[mid2 + 1]),
+            )
 
     idx1, idx2 = start1 + (len1 - 1) // 2, start2 + (len2 - 1) // 2
     if nums1[idx1] > nums2[idx2]:
-        return _find_sorted_ararys_median(nums1, start1, len1 // 2 + 1,
-                                          nums2, start2 + idx1 - start1,
-                                          len2 + start1 - idx1)
+        return _find_sorted_ararys_median(
+            nums1,
+            start1,
+            len1 // 2 + 1,
+            nums2,
+            start2 + idx1 - start1,
+            len2 + start1 - idx1,
+        )
     else:
-        return _find_sorted_ararys_median(nums1, idx1, len1 // 2 + 1,
-                                          nums2, start2, len2 +  start1 - idx1)
+        return _find_sorted_ararys_median(
+            nums1, idx1, len1 // 2 + 1, nums2, start2, len2 + start1 - idx1
+        )
 
 
 def median_of_2(num1, num2):
     """Utility functions to compute the median of 3 numbers"""
     return (num1 + num2) / 2.0
+
 
 def median_of_3(num1, num2, num3):
     """Utility functions to compute the median of 3 numbers"""
@@ -78,7 +90,7 @@ def median_of_4(num1, num2, num3, num4):
     return num_sum / 2.0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     NUMS1 = [1, 3]
     NUMS2 = [2]
     print("Median of", NUMS1, "and", NUMS2)
