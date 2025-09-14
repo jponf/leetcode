@@ -21,8 +21,12 @@ Constraints:
 
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
+        # Python built-in
+        # return haystack.find(needle)
+
         needle_len = len(needle)
         for i in range(len(haystack) - needle_len + 1):
+            # Using substrings
             if haystack[i : i + needle_len] == needle:
                 return i
 
