@@ -57,7 +57,6 @@ class Solution:
         stack = []
         node: Optional[ListNode] = head
         while node is not None:
-            print(node.val)
             stack.append((node, node.next))
             if node.next is not None:
                 node = node.next.next
@@ -67,11 +66,6 @@ class Solution:
         stack_ret: Optional[ListNode] = None
         while stack:
             node, next_n = stack.pop()
-            print(
-                node.val,
-                next_n.val if next_n else None,
-                stack_ret.val if stack_ret else None,
-            )
             if next_n is None:
                 stack_ret = node
             else:
