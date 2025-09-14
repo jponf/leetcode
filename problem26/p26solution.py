@@ -68,11 +68,13 @@ class Solution:
 if __name__ == "__main__":
     # values = [1, 1, 2]
     values = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+
     solution = Solution()
-    k = solution.removeDuplicates(values)
 
     print("Input:", values)
-    print("# Unique values:", solution.removeDuplicates(values))
+
+    k = solution.removeDuplicates(values)
+    print("# Unique values:", k)
     print("Result after removing duplicates:")
     print("")
     print(values)
